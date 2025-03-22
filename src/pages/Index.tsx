@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
+import { NavbarProps } from "@/components/NavbarProps";
 import Footer from "@/components/Footer";
 import { 
   ArrowRight, 
@@ -207,7 +208,7 @@ const Index = () => {
                 <div className="absolute -top-6 -left-6 w-24 h-24 bg-primary/10 rounded-full blur-xl"></div>
                 <div className="absolute -bottom-10 -right-10 w-32 h-32 bg-accent/30 rounded-full blur-xl"></div>
                 <img 
-                  src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1350&q=80" 
+                  src="https://images.unsplash.com/photo-1603415526960-f7e0328c63b1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1350&q=80" 
                   alt="Freelancers collaborating" 
                   className="rounded-2xl shadow-xl w-full object-cover h-[500px]"
                 />

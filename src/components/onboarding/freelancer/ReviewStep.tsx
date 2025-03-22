@@ -1,10 +1,10 @@
-
 import React from 'react';
 import { Badge } from '@/components/ui/badge';
 import { MapPin, Star, Briefcase, Clock, DollarSign, Languages, CheckCircle2, X } from 'lucide-react';
 
 interface ReviewStepProps {
   data: any;
+  updateData?: (data: any) => void;
 }
 
 const ReviewStep: React.FC<ReviewStepProps> = ({ data }) => {
