@@ -1,5 +1,5 @@
-
 import React, { useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { 
@@ -17,6 +17,7 @@ import {
   Users 
 } from "lucide-react";
 import { cn } from "@/lib/utils";
+import OnboardingModal from "@/components/onboarding/OnboardingModal";
 
 // Mock data for featured freelancers
 const featuredFreelancers = [
@@ -140,6 +141,7 @@ const jobListings = [
 
 const Index = () => {
   const observer = useRef<IntersectionObserver | null>(null);
+  const [showOnboarding, setShowOnboarding] = React.useState(false);
   
   useEffect(() => {
     observer.current = new IntersectionObserver((entries) => {
@@ -163,9 +165,13 @@ const Index = () => {
     };
   }, []);
 
+  const openOnboarding = () => {
+    setShowOnboarding(true);
+  };
+
   return (
     <div className="min-h-screen">
-      <Navbar />
+      <Navbar onSignUpClick={openOnboarding} />
       
       {/* Hero Section */}
       <section className="pt-32 pb-16 md:pt-40 md:pb-24 bg-gradient-to-br from-white to-blue-50">
@@ -189,6 +195,12 @@ const Index = () => {
                   See our clients
                 </a>
               </div>
+              <button 
+                onClick={openOnboarding}
+                className="btn-outline border-primary text-primary hover:bg-primary hover:text-white"
+              >
+                Get Started
+              </button>
             </div>
             <div className="lg:pl-6 opacity-0 animate-fade-up" style={{ animationDelay: "300ms" }}>
               <div className="relative">
@@ -494,6 +506,8 @@ const Index = () => {
           </div>
         </div>
       </section>
+
+      {showOnboarding && <OnboardingModal onClose={() => setShowOnboarding(false)} />}
 
       <Footer />
     </div>
